@@ -1,5 +1,3 @@
-export function sayHi(): string {
-  return "Hello";
-}
+import { sayHi } from "./hello";
 
 console.log(sayHi());
