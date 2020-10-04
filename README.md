@@ -44,5 +44,4 @@ get-house-materials --name Bob
 
 ### Output
 
-Outputs the arguments to the command line in the form of a plain object
-
+Outputs the arguments to the command line

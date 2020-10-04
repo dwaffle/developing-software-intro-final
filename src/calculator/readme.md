@@ -23,3 +23,24 @@ none
 ### Output
 
 Outputs the arguments to the command line, along with a message indicating the function in calculator/index.ts was successfully called.
+
+
+### Paramaters
+
+name: The name of the customer
+
+### Usage examples
+
+get-house-materials --name Bob
+
+### Returns
+
+void
+
+### Throws
+
+none
+
+### Output
+
+Outputs the arguments to the command line along with a message indicating a successful call.
