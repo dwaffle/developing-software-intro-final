@@ -1,7 +1,8 @@
 import { Arguments, Argv, string } from "yargs";
+import { calcHouseMaterials} from '../calculator/index'
 
 //Note: not expected to write tests for Yargs.
-export function calcHouseMaterials(yargs: Argv): void {
+export function calc_House_Materials(yargs: Argv): void {
   yargs.command(
     //name the command
     "calc-house-materials",
@@ -40,7 +41,7 @@ export function calcHouseMaterials(yargs: Argv): void {
         name: string;
       }>
     ) {
-      console.log(args.name, args.length, args.width, args.isFeet);
+      calcHouseMaterials(args.name, args.width, args.length, args.isFeet);
     }
   );
 }

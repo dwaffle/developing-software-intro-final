@@ -1,9 +1,9 @@
 import yargs = require('yargs')
-import {calcHouseMaterials} from './commands/calc-house-materials'
+import {calc_House_Materials} from './commands/calc-house-materials'
 import {getHouseMaterials} from './commands/get-house-materials'
 
 //The commands to run
-calcHouseMaterials(yargs);
+calc_House_Materials(yargs);
 
 getHouseMaterials(yargs);
 //Include the --help flag

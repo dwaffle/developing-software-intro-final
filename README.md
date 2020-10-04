@@ -37,7 +37,7 @@ none
 
 ### Output
 
-Outputs the arguments to the command line.
+Outputs the arguments to the command line, along with a message indicating the function in calculator/index.ts was successfully called.
 
 ## get-house-materials
 
