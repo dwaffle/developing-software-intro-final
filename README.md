@@ -27,13 +27,6 @@ isFeet: Changes the paramters of the length and width to feet.
 calc-house-materials --name Bob --width 8 --length 8 --isFeet
 calc-house-materials --name Jim --width 96 --length 96
 
-### Returns
-
-void
-
-### Throws
-
-none
 
 ### Output
 
@@ -48,14 +41,6 @@ name: The name of the customer
 ### Usage examples
 
 get-house-materials --name Bob
-
-### Returns
-
-void
-
-### Throws
-
-none
 
 ### Output
 
