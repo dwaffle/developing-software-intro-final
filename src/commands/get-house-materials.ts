@@ -1,5 +1,5 @@
 import { Arguments, Argv, string } from "yargs";
-import { getHouseMaterials} from '../calculator/index'
+import { getHouseMaterials } from "../calculator/index";
 
 //Note: not expected to write tests for Yargs.
 export function get_House_Materials(yargs: Argv): void {
@@ -23,10 +23,8 @@ export function get_House_Materials(yargs: Argv): void {
         name: string;
       }>
     ) {
-      const house = {
-        name: args.name,
-      };
-      getHouseMaterials(args.name);
+      const house = getHouseMaterials(args.name);
+      console.log(house);
     }
   );
 }

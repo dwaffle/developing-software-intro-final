@@ -1,6 +1,6 @@
 {
   "name": "ascd-final-dougwaffle",
-  "version": "1.8.0",
+  "version": "2.0.0",
   "description": "This respository is intended for the use of Focus College Students enrolled in the Advanced Certificate of Software Development located in Kelowna, BC and Surrey, BC.",
   "main": "index.js",
   "scripts": {
@@ -12,7 +12,8 @@
     "start:compile": "npm run compile && npm run start --",
     "start:lint:compile": "npm run lint && npm run compile && npm run start --",
     "start:lint:format:compile": "npm run format && npm run start:lint:compile --",
-    "start:lint:format:test:compile": "npm run test && npm run start:lint:format:compile --"
+    "start:lint:format:test:compile": "npm run test && npm run start:lint:format:compile --",
+    "start:full": "npm run start:lint:format:test:compile"
   },
   "repository": {
     "type": "git",

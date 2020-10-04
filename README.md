@@ -30,7 +30,7 @@ calc-house-materials --name Jim --width 96 --length 96
 
 ### Output
 
-Outputs the arguments to the command line, along with a message indicating the function in calculator/index.ts was successfully called.
+Outputs a house object to the command line.  Zeros used as placeholder values.
 
 ## get-house-materials
 
@@ -44,4 +44,4 @@ get-house-materials --name Bob
 
 ### Output
 
-Outputs the arguments to the command line
+Outputs a house object to the command line.  Zeros used as placeholder values.

@@ -14,7 +14,7 @@ calc-house-materials --name Jim --width 96 --length 96
 
 ### Returns
 
-void
+IHouse
 
 ### Throws
 
@@ -22,7 +22,7 @@ none
 
 ### Output
 
-Outputs the arguments to the command line, along with a message indicating the function in calculator/index.ts was successfully called.
+Outputs a house object to the command line
 
 
 ### Paramaters
@@ -35,7 +35,7 @@ get-house-materials --name Bob
 
 ### Returns
 
-void
+IHouse
 
 ### Throws
 
@@ -43,4 +43,36 @@ none
 
 ### Output
 
-Outputs the arguments to the command line along with a message indicating a successful call.
+Outputs a house object to the command line.  Zeros are used for filler values.
+
+## Interfaces
+
+IHouse: Defines what a house object should look like for Gerald.  
+
+## Paramaters:
+
+name
+
+Type: string
+The name of the customer.
+
+house
+
+Type: object
+Contains the width, length, and the calculated areas of the house
+
+materials
+
+Type: object
+Contains the total lumber, plywood and drywall needed for the house.
+
+waste
+
+Type: object
+Contains the extra lumber, plywood, and drywall purchased to account for waste.
+
+purchase
+
+Type: object
+Contains the total lumber, plywood, and drywall to purchase for the house.
+
