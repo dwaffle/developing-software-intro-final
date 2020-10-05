@@ -6,12 +6,12 @@ describe("Tests the calcDrywall function", () => {
         const result = calcDrywall(8,8)
         expect(result).to.equal(1);
     })
-    it("should return 2", () => {
+    it("should return 8", () => {
         const result = calcDrywall(96,96);
-        expect(result).to.equal(2);
+        expect(result).to.equal(9);
     })
-    it("should return 3", () => {
-        const result = calcDrywall(97, 97)
-        expect(result).to.equal(3);
+    it("should return 10", () => {
+        const result = calcDrywall(103, 103)
+        expect(result).to.equal(10)
     })
 })
