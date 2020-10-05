@@ -1,4 +1,9 @@
 import { IHouse } from "./interfaces";
+import { calcWallLumber } from "./calcWallLumber";
+
+export function convertFeetToInches(feet: number) {
+  return feet * 12;
+}
 
 export function calcHouseMaterials(
   name: string,
@@ -6,6 +11,11 @@ export function calcHouseMaterials(
   length: number,
   units: boolean
 ): IHouse {
+  if (units) {
+    width = convertFeetToInches(width);
+    length = convertFeetToInches(length);
+  }
+
   const house: IHouse = {
     name: name,
     house: {

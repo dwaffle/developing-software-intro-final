@@ -2,7 +2,7 @@ import { Arguments, Argv, string } from "yargs";
 import { getHouseMaterials } from "../calculator/index";
 
 //Note: not expected to write tests for Yargs.
-export function get_House_Materials(yargs: Argv): void {
+export function get_house_materials(yargs: Argv): void {
   yargs.command(
     //name the command
     "get-house-materials",

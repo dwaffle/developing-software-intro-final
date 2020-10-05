@@ -76,3 +76,23 @@ purchase
 Type: object
 Contains the total lumber, plywood, and drywall to purchase for the house.
 
+## calcWallLumber
+
+Calculates the lumber required for a house.
+
+Paramaters: inches - The length of a side of a house in inches.
+
+### Usage example
+
+calcWallLumber(96)
+
+### Returns
+{
+    plates:number The number of plates required in a wall of length x
+    posts:number The number of posts required in a wall of length x
+    studs:number The number of studs required in a wall of length x
+}
+
+### Throws
+
+none
