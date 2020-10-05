@@ -1,4 +1,4 @@
-import { Arguments, Argv, string } from "yargs";
+import { Arguments, Argv } from "yargs";
 import { getHouseMaterials } from "../calculator/index";
 
 //Note: not expected to write tests for Yargs.

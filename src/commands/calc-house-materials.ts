@@ -1,4 +1,4 @@
-import { Arguments, Argv, number, string } from "yargs";
+import { Arguments, Argv } from "yargs";
 import { calcHouseMaterials } from "../calculator/index";
 import { calcWallLumber } from "../calculator/calcWallLumber";
 

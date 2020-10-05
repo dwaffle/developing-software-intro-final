@@ -10,7 +10,7 @@ describe("Tests that calcWallLumber returns the correct number of plates, studs,
 
     it("Should return 1 for studs", () => {
         const result = calcWallLumber(0);
-        expect(result.studs).to.equal(1); //Absolute minimum a house would need is one stud.
+        expect(result.studs).to.equal(1); //Absolute minimum a wall would need is one stud.
     }),
 
     it("Should return 3 for plates", () => {
@@ -28,12 +28,12 @@ describe("Tests that calcWallLumber returns the correct number of plates, studs,
         expect(result.studs).to.equal(7);
     })
     it("Should return 6 for studs", () => {
-        const result = calcWallLumber(95)
+        const result = calcWallLumber(95) //Non multiple of 16
         expect(result.studs).to.equal(6);
     })
 
     it("Should return 5 for studs", () => {
-        const result = calcWallLumber(64) //Exact multiple of 16
+        const result = calcWallLumber(64)
         expect(result.studs).to.equal(5);
     })
 });
