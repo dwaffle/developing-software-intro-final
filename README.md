@@ -30,7 +30,7 @@ calc-house-materials --name Jim --width 96 --length 96
 
 ### Output
 
-Outputs a house object to the command line.  Zeros used as placeholder values.
+Outputs a house object to the command line.  Zeros used as placeholder values.  Added calculator for wall materials.
 
 ## get-house-materials
 

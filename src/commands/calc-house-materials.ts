@@ -1,24 +1,6 @@
 import { Arguments, Argv } from "yargs";
 import { calcHouseMaterials } from "../calculator/index";
-import { calcWallLumber } from "../calculator/calcWallLumber";
 
-export function testCalcWallLumber(yargs: Argv) {
-  yargs.command(
-    "test-calc-lumber",
-    "Tests the calc wall lumber command",
-    {
-      inches: {
-        type: "number",
-        alias: "i",
-        description: "The size of a wall in inches",
-      },
-    },
-
-    function (args: Arguments<{ inches: number }>) {
-      console.log(calcWallLumber(args.inches));
-    }
-  );
-}
 //Note: not expected to write tests for Yargs.
 export function calc_house_materials(yargs: Argv): void {
   yargs.command(

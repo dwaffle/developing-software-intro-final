@@ -43,7 +43,7 @@ none
 
 ### Output
 
-Outputs a house object to the command line.  Zeros are used for filler values.
+Outputs a house object to the command line.  Zeros are used for filler values.  Materials are are now calculated.
 
 ## Interfaces
 

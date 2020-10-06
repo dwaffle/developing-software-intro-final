@@ -52,4 +52,20 @@ describe("Creates a house object as defined in IHouse", () => {
     it("should throw a RangeError for length greater than 720", () => {
         expect(() => calcHouseMaterials("Bob", 96, 721,false)).to.throw(RangeError, "Houses cannot be smaller than 48 inches or greater than 720 inches.")
     })
+    it("should return a house with 40 2x4s in the materials", () => {
+        const result = calcHouseMaterials("Bob", 103, 103, false);
+        expect(result.materials.lumber["2x4"]).to.equal(40);
+    })
+    it("should return a house requiring 4 4x4 posts in the materials",() => {
+        const result = calcHouseMaterials("Bob", 103, 103, false);
+        expect(result.materials.lumber["4x4"]).to.equal(4);
+    })
+    it("should return a house requiring 10 sheets of drywall", () => {
+        const result = calcHouseMaterials("Bob", 103, 103, false);
+        expect(result.materials.drywall["4x8"]).to.equal(10);
+    })
+    it("should return a house requiring 9 sheets of plywood", () => {
+        const result = calcHouseMaterials("Bob", 103, 103, false);
+        expect(result.materials.plywood["4x8"]).to.equal(9);
+    })
 });
