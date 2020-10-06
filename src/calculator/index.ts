@@ -2,10 +2,16 @@ import { IHouse } from "./interfaces";
 import { calcDrywall } from "../calculator/calcDrywall";
 import { calcPlywood } from "../calculator/calcPlywood";
 import { calcMaterials } from "../calculator/calcMaterials";
+import { getInsideWallsAndCeilingArea } from "../calculator/calcDrywall";
+import { outsideWallCalc } from "../calculator/calcPlywood";
 import { calcWallLumber } from "./calcWallLumber";
 
 export function convertFeetToInches(feet: number) {
   return feet * 12;
+}
+
+export function calcWaste(items: number) {
+  return Math.ceil(items * 0.1); //One tenth of the items, rounded up.
 }
 
 export function calcHouseMaterials(
@@ -32,14 +38,27 @@ export function calcHouseMaterials(
     length
   );
 
+  const waste = {
+    lumber: {
+      "2x4": calcWaste(houseMaterials.materials.lumber["2x4"]),
+      "4x4": calcWaste(houseMaterials.materials.lumber["4x4"]),
+    },
+    plywood: {
+      "4x8": calcWaste(houseMaterials.materials.plywood["4x8"]),
+    },
+    drywall: {
+      "4x8": calcWaste(houseMaterials.materials.drywall["4x8"]),
+    },
+  };
+
   const house: IHouse = {
     name: name,
     house: {
       width: width,
       length: length,
-      outsideWallArea: 0,
-      insideWallArea: 0,
-      ceilingArea: 0,
+      outsideWallArea: outsideWallCalc(length + width),
+      insideWallArea: getInsideWallsAndCeilingArea(length, width) * 4,
+      ceilingArea: getInsideWallsAndCeilingArea(length, width),
     },
     materials: {
       lumber: {
@@ -55,14 +74,14 @@ export function calcHouseMaterials(
     },
     waste: {
       lumber: {
-        "2x4": 0,
-        "4x4": 0,
+        "2x4": waste.lumber["2x4"],
+        "4x4": waste.lumber["4x4"],
       },
       plywood: {
-        "4x8": 0,
+        "4x8": waste.plywood["4x8"],
       },
       drywall: {
-        "4x8": 0,
+        "4x8": waste.drywall["4x8"],
       },
     },
     purchase: {

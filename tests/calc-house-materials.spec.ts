@@ -68,4 +68,20 @@ describe("Creates a house object as defined in IHouse", () => {
         const result = calcHouseMaterials("Bob", 103, 103, false);
         expect(result.materials.plywood["4x8"]).to.equal(9);
     })
+    it("should return a house with four waste 2x4s", () => {
+        const result = calcHouseMaterials("Bob", 103, 103, false);
+        expect(result.waste.lumber["2x4"]).to.equal(4);
+    })
+    it("should return a house with one waste 4x4", () => {
+        const result = calcHouseMaterials("Bob", 103, 103, false);
+        expect(result.waste.lumber["4x4"]).to.equal(1);
+    })
+    it("should return a house with one waste 4x8 sheet of drywall", () => {
+        const result = calcHouseMaterials("Bob", 103, 103, false)
+        expect(result.waste.drywall["4x8"]).to.equal(1)
+    })
+    it("should return a house with one waste 4x8 sheet of plywood", () => {
+        const result = calcHouseMaterials("Bob", 103, 103, false)
+        expect(result.waste.plywood["4x8"]).to.equal(1)
+    })
 });

@@ -173,3 +173,19 @@ An object containing the materials required for a house.
         }
     }
 }
+
+## calcWaste
+
+Calculates the waste materials for a house, ten percent rounded up.
+
+### Usage
+
+calcWaste(34) //Returns 4
+
+### Throws
+
+none
+
+### Returns
+
+number: The number of waste items to be purchased.
