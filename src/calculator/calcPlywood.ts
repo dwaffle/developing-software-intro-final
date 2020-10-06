@@ -9,7 +9,10 @@ export function outsideWallCalc(lengthInInches: number): number {
   return areaOfRectangle(lengthInInches, boardHeight) * 2;
 }
 
-export function calcPlywood(widthInInches: number, lengthInInches: number) {
+export function calcPlywood(
+  widthInInches: number,
+  lengthInInches: number
+): number {
   //Total outside area of the house.
   const outsideAreaOfHouse =
     outsideWallCalc(lengthInInches) + outsideWallCalc(widthInInches);

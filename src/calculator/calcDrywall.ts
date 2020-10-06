@@ -10,7 +10,10 @@ export function getInsideWallsAndCeilingArea(
   return areaOfRectangle(lengthInInches - 7, widthInInches - 7);
 }
 
-export function calcDrywall(lengthInInches: number, widthInInches: number) {
+export function calcDrywall(
+  lengthInInches: number,
+  widthInInches: number
+): number {
   const drywallArea = drywallLength * drywallWidth;
   //Four walls and the ceiling need drywall.
   const totalWallArea =

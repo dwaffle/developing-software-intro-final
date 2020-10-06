@@ -20,6 +20,7 @@ function getStudsInLength(inches: number) {
 
 function getExtraPostsNeeded(inches: number) {
   //If our wall isn't at least 20 feet long, we don't need any extra posts.
+  if (inches < 240) return 0;
   const wallLengthRequiredBeforePost = getExtraWallLength(inches);
   const wallLengthPlusPost = postsRequiredDistance + postWidth;
   const requiredPosts = Math.ceil(
@@ -57,6 +58,7 @@ function getFullSections(inches: number, posts: number) {
 }
 
 function getLastSectionSize(inches: number, posts: number) {
+  //How big is the last section?
   const fullSections = getFullSections(inches, posts);
   const lastSectionSize =
     inches - posts * postWidth - fullSections * fullBoardsInSection;
@@ -65,17 +67,12 @@ function getLastSectionSize(inches: number, posts: number) {
 
 export function calcWallLumber(inches: number) {
   //Get required posts
-  let requiredPosts = getExtraPostsNeeded(inches);
+  const requiredPosts = getExtraPostsNeeded(inches);
   const fullSections = getFullSections(inches, requiredPosts);
   const lastSectionSize = getLastSectionSize(inches, requiredPosts);
   const studs =
     getStudsInLength(inches) * fullSections + getStudsInLength(lastSectionSize);
   const plates = getPlatesInWall(inches);
-
-  requiredPosts += 4; //Minimum four posts in each house.
-  console.log(
-    `studs: ${studs},\n plates: ${plates},\n posts: ${requiredPosts}`
-  );
   return {
     function: "calcWallLumber",
     inches,

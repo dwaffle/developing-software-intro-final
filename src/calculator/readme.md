@@ -131,3 +131,45 @@ number: The number of sheets of plywood needed to cover the area of the house, r
 
 none
 
+## calcMaterials
+
+Returns the materials required for a house.
+
+### Paramaters
+
+drywallCalc: function(width:number, length:number):number
+plywoodCalc: function(width:number, length:number):number
+wallLumberCalc: (inches:number) => any
+width:number,
+length:number
+
+drywallCalc: a function that takes a width of a house, length of a house, and returns a number.
+plywoodCalc: a function that takes the width of a house, length of a house, and returns a number.
+wallLumberCalc: takes a wall length in inches and returns an object containing the number of posts, plates and studs required for the walls of the house.
+width: the width of the house
+length: the length of the house.
+
+### Throws
+
+none
+
+### Returns
+
+An object containing the materials required for a house.
+
+### Sample output
+
+{
+    materials: {
+        lumber: {
+            "2x4": 40
+            "4x4: 4
+        },
+        plywood: {
+            "4x8": 9
+        },
+        drywall: {
+            "4x8": drywall
+        }
+    }
+}
