@@ -18,7 +18,7 @@ IHouse
 
 ### Throws
 
-none
+RangeError - walls need to be between 48 and 720 inches, inclusive.
 
 ### Output
 
@@ -96,3 +96,38 @@ calcWallLumber(96)
 ### Throws
 
 none
+
+## areaOfRectangle
+
+Returns the area of a rectangle of length l and width w.
+
+### Paramaters
+
+length: the length of a side of the rectangle
+width: the width of a side of the rectangle
+
+### Returns
+
+number: length * width - the total area of a rectangle.
+
+### Throws
+
+none
+
+## calcPlywood
+
+Returns the number of sheets of plywood needed to cover a wall of width x and length y
+
+### Paramaters
+
+length: The length a side of the house.
+width: The width of a side of the house.
+
+### Returns
+
+number: The number of sheets of plywood needed to cover the area of the house, rounded up.
+
+### Throws
+
+none
+

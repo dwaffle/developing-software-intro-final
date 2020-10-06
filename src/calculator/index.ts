@@ -16,6 +16,12 @@ export function calcHouseMaterials(
     length = convertFeetToInches(length);
   }
 
+  if (width < 48 || width > 720 || length < 48 || length > 720) {
+    throw RangeError(
+      "Houses cannot be smaller than 48 inches or greater than 720 inches."
+    );
+  }
+
   const house: IHouse = {
     name: name,
     house: {

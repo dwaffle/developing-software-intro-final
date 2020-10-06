@@ -6,7 +6,7 @@
 
 - Added .gitignore file
 
-- Added linting and scripts to lint, and lint and run.g
+- Added linting and scripts to lint, and lint and run.
 - Added code formatting using Prettier.
 - Added testing using mocha and chai.
 - Added nyc for test coverage

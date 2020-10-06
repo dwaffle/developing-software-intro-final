@@ -7,7 +7,7 @@ describe("Tests that calcWallLumber returns the correct number of plates, studs,
         const result = calcWallLumber(0);
         expect(result.plates).to.equal(0);
     }),
-
+    
     it("Should return 1 for studs", () => {
         const result = calcWallLumber(0);
         expect(result.studs).to.equal(1); //Absolute minimum a wall would need is one stud.
