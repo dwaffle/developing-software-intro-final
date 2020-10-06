@@ -1,5 +1,5 @@
 import { expect } from 'chai'
-import {calcWaste} from '../src/calculator/index'
+import {calcWaste} from '../src/calculator/calcWaste'
 
 describe("Tests the waste calculator.", () => {
     it("Should return 1", () => {

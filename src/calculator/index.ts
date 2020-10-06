@@ -3,15 +3,13 @@ import { calcDrywall } from "../calculator/calcDrywall";
 import { calcPlywood } from "../calculator/calcPlywood";
 import { calcMaterials } from "../calculator/calcMaterials";
 import { getInsideWallsAndCeilingArea } from "../calculator/calcDrywall";
+import { calcWaste } from "./calcWaste";
+import { calcPurchase } from "./calcPurchase";
 import { outsideWallCalc } from "../calculator/calcPlywood";
 import { calcWallLumber } from "./calcWallLumber";
 
 export function convertFeetToInches(feet: number) {
   return feet * 12;
-}
-
-export function calcWaste(items: number) {
-  return Math.ceil(items * 0.1); //One tenth of the items, rounded up.
 }
 
 export function calcHouseMaterials(
@@ -39,17 +37,21 @@ export function calcHouseMaterials(
   );
 
   const waste = {
-    lumber: {
-      "2x4": calcWaste(houseMaterials.materials.lumber["2x4"]),
-      "4x4": calcWaste(houseMaterials.materials.lumber["4x4"]),
-    },
-    plywood: {
-      "4x8": calcWaste(houseMaterials.materials.plywood["4x8"]),
-    },
-    drywall: {
-      "4x8": calcWaste(houseMaterials.materials.drywall["4x8"]),
+    waste: {
+      lumber: {
+        "2x4": calcWaste(houseMaterials.materials.lumber["2x4"]),
+        "4x4": calcWaste(houseMaterials.materials.lumber["4x4"]),
+      },
+      plywood: {
+        "4x8": calcWaste(houseMaterials.materials.plywood["4x8"]),
+      },
+      drywall: {
+        "4x8": calcWaste(houseMaterials.materials.drywall["4x8"]),
+      },
     },
   };
+
+  const totalPurchase = calcPurchase(houseMaterials, waste);
 
   const house: IHouse = {
     name: name,
@@ -74,30 +76,29 @@ export function calcHouseMaterials(
     },
     waste: {
       lumber: {
-        "2x4": waste.lumber["2x4"],
-        "4x4": waste.lumber["4x4"],
+        "2x4": waste.waste.lumber["2x4"],
+        "4x4": waste.waste.lumber["4x4"],
       },
       plywood: {
-        "4x8": waste.plywood["4x8"],
+        "4x8": waste.waste.plywood["4x8"],
       },
       drywall: {
-        "4x8": waste.drywall["4x8"],
+        "4x8": waste.waste.drywall["4x8"],
       },
     },
     purchase: {
       lumber: {
-        "2x4": 0,
-        "4x4": 0,
+        "2x4": totalPurchase.purchase.lumber["2x4"],
+        "4x4": totalPurchase.purchase.lumber["4x4"],
       },
       plywood: {
-        "4x8": 0,
+        "4x8": totalPurchase.purchase.plywood["4x8"],
       },
       drywall: {
-        "4x8": 0,
+        "4x8": totalPurchase.purchase.drywall["4x8"],
       },
     },
   };
-  console.log(house);
   return house;
 }
 

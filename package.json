@@ -13,7 +13,7 @@
     "start:lint:compile": "npm run lint && npm run compile && npm run start --",
     "start:lint:format:compile": "npm run format && npm run start:lint:compile --",
     "start:lint:format:test:compile": "npm run test && npm run start:lint:format:compile --",
-    "start:full": "npm run start:lint:format:test:compile"
+    "start:full": "npm run start:lint:format:test:compile --"
   },
   "repository": {
     "type": "git",

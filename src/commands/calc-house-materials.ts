@@ -41,12 +41,14 @@ export function calc_house_materials(yargs: Argv): void {
         name: string;
       }>
     ) {
+      console.log(args);
       const house = calcHouseMaterials(
         args.name,
         args.width,
         args.length,
         args.isFeet
       );
+
       console.log(house);
     }
   );
