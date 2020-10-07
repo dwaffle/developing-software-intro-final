@@ -25,7 +25,9 @@ isFeet: Changes the paramaters of the length and width to feet.
 ### Usage examples
 
 npm run start -- calc-house-materials --name Bob --width 8 --length 8 --isFeet
+
 npm run start -- calc-house-materials --name Jimmy --width 96 --length 60
+
 npm run start -- calc-house-materials --name William --width 103 --length 103
 
 

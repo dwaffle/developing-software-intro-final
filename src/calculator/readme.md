@@ -39,7 +39,7 @@ IHouse
 
 ### Throws
 
-Error: "There is no house by that name" - Thrown when attempting to retrieve a house that doesn't exist.
+FileNotFoundError: "There is no house by that name" - Thrown when attempting to retrieve a house that doesn't exist.
 
 ### Output
 
@@ -66,17 +66,17 @@ Contains the width, length, and the calculated areas of the house
 
 materials
 
-Type: object
+Type: IMaterials
 Contains the total lumber, plywood and drywall needed for the house.
 
 waste
 
-Type: object
+Type: IWaste
 Contains the extra lumber, plywood, and drywall purchased to account for waste.
 
 purchase
 
-Type: object
+Type: IPurchase
 Contains the total lumber, plywood, and drywall to purchase for the house.
 
 ## calcWallLumber
@@ -158,7 +158,7 @@ none
 
 ### Returns
 
-An object containing the materials required for a house.
+IWaste: An object containing the materials required for a house.
 
 ### Sample output
 
