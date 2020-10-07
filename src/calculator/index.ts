@@ -114,10 +114,16 @@ export function calcHouseMaterials(
   return house;
 }
 
+export class FileNotFoundError extends Error {
+  constructor(message: string) {
+    super(message);
+    this.name = "FileNotFoundError";
+  }
+}
 export function getHouseMaterials(name: string): IHouse {
   //Check to see if the file exists. If so, load it.
   if (!fs.existsSync(`dist/data/${name}.json`)) {
-    throw new Error("There is no house by that name.");
+    throw new FileNotFoundError("There is no house by that name.");
   }
   //We've found a house.  Load it, send it back to be output.
   const path = `dist/data/${name}.json`;
