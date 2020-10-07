@@ -1,4 +1,4 @@
-import { IHouse, IMaterials, IPurchase, IWaste } from "./interfaces";
+import { IMaterials, IPurchase, IWaste } from "./interfaces";
 
 export function calcPurchase(
   requiredItems: IMaterials,

@@ -39,15 +39,18 @@ IHouse
 
 ### Throws
 
-none
+Error: "There is no house by that name" - Thrown when attempting to retrieve a house that doesn't exist.
 
 ### Output
 
-Outputs a house object to the command line.  Zeros are used for filler values.  Materials are are now calculated.
+Outputs a house object loaded from memory to the command line. 
 
 ## Interfaces
 
-IHouse: Defines what a house object should look like for Gerald.  
+IHouse: Defines what a house object should look like for Gerald.
+IMaterials: Defines the materials required not counting waste.
+IWaste: Defines the extra materials needed due to waste.
+IPurchase: Defines the total purchase required.  
 
 ## Paramaters:
 

@@ -7,6 +7,7 @@ import { calcWaste } from "./calcWaste";
 import { calcPurchase } from "./calcPurchase";
 import { outsideWallCalc } from "../calculator/calcPlywood";
 import { calcWallLumber } from "./calcWallLumber";
+import fs = require("fs");
 
 export function convertFeetToInches(feet: number) {
   return feet * 12;
@@ -22,6 +23,9 @@ export function calcHouseMaterials(
     width = convertFeetToInches(width);
     length = convertFeetToInches(length);
   }
+  if (!name) {
+    name = "Testy McTesterson"; //Supply a default name so the calculator can still be used as just a calculator.
+  }
 
   if (width < 48 || width > 720 || length < 48 || length > 720) {
     throw RangeError(
@@ -35,7 +39,7 @@ export function calcHouseMaterials(
     width,
     length
   );
-
+  //Figure out our waste
   const waste = {
     waste: {
       lumber: {
@@ -50,9 +54,9 @@ export function calcHouseMaterials(
       },
     },
   };
-
+  //Our grand total.
   const totalPurchase = calcPurchase(houseMaterials, waste);
-
+  //Load the data into the house.
   const house: IHouse = {
     name: name,
     house: {
@@ -99,55 +103,25 @@ export function calcHouseMaterials(
       },
     },
   };
+  //Save the data.
+  const path = `dist/data/${house.name}.json`;
+  if (!fs.existsSync("dist/data/")) {
+    fs.mkdirSync("dist/data/"); //Intentionally left untested to not delete existing data.
+  }
+  const data = JSON.stringify(house);
+  fs.writeFileSync(path, data, "utf8");
+  //Send the data back to the caller.
   return house;
 }
 
 export function getHouseMaterials(name: string): IHouse {
-  const house: IHouse = {
-    name: name,
-    house: {
-      width: 0,
-      length: 0,
-      outsideWallArea: 0,
-      insideWallArea: 0,
-      ceilingArea: 0,
-    },
-    materials: {
-      lumber: {
-        "2x4": 0,
-        "4x4": 0,
-      },
-      plywood: {
-        "4x8": 0,
-      },
-      drywall: {
-        "4x8": 0,
-      },
-    },
-    waste: {
-      lumber: {
-        "2x4": 0,
-        "4x4": 0,
-      },
-      plywood: {
-        "4x8": 0,
-      },
-      drywall: {
-        "4x8": 0,
-      },
-    },
-    purchase: {
-      lumber: {
-        "2x4": 0,
-        "4x4": 0,
-      },
-      plywood: {
-        "4x8": 0,
-      },
-      drywall: {
-        "4x8": 0,
-      },
-    },
-  };
-  return house;
+  //Check to see if the file exists. If so, load it.
+  if (!fs.existsSync(`dist/data/${name}.json`)) {
+    throw new Error("There is no house by that name.");
+  }
+  //We've found a house.  Load it, send it back to be output.
+  const path = `dist/data/${name}.json`;
+  const rawHouses = fs.readFileSync(path, "utf8");
+  const parsedData: IHouse = JSON.parse(rawHouses);
+  return parsedData;
 }

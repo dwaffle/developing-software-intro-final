@@ -1,12 +1,25 @@
 import { expect } from 'chai'
 import {calcHouseMaterials} from '../src/calculator/index'
-import {IHouse} from '../src/calculator/interfaces'
+import fs = require('fs')
 
 describe("Creates a house object as defined in IHouse", () => {
     it("should return an IHouse with name: Bob", () => {
         const result = calcHouseMaterials("Bob", 96, 96, false)
         expect(result.name).to.equal("Bob")
     });
+    it("should allow an IHouse with no name", () => {
+        const result = calcHouseMaterials("",103,103,false)
+        expect(result.name).to.equal("Testy McTesterson")
+    })
+    it("should create a file named Alan Smitheee", () => {
+        if(fs.existsSync(`/dist/data/Alan Smitheee.json`))
+        {
+            fs.unlinkSync(`/dist/data/Alan Smitheee.json`)
+        }
+        calcHouseMaterials("Alan Smitheee", 8, 8, true)
+        const result = 
+        expect(fs.existsSync(`dist/data/Alan Smitheee.json`)).to.be.true;
+    })
     it("should return an IHouse with length = 96", () => {
         const result = calcHouseMaterials("Bob", 96, 96, false)
         expect(result.house.length).to.equal(96);
