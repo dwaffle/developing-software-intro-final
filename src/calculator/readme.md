@@ -3,13 +3,17 @@
 ### Paramaters
 
 name: The name of the customer
+
 width: The width of the house (defaults to inches)
+
 length: The length of the house (defaults to inches)
+
 isFeet: Changes the paramters of the length and width to feet.
 
 ### Usage examples
 
 calc-house-materials --name Bob --width 8 --length 8 --isFeet
+
 calc-house-materials --name Jim --width 96 --length 96
 
 ### Returns
@@ -24,6 +28,7 @@ RangeError - walls need to be between 48 and 720 inches, inclusive.
 
 Outputs a house object to the command line
 
+## get-house-materials
 
 ### Paramaters
 
